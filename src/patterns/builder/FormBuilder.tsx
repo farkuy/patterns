@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, {ChangeEvent, ReactNode} from "react";
 import {CreateForm} from "./CreateForm";
 import {Input} from "../../components/Input/Input";
 import {Button} from "../../components/Button/Button";
@@ -9,8 +9,8 @@ export class FormBuilder {
         this.elements = [];
     }
 
-    setInput(placeholder: string) {
-        const newInput = <Input placeholder={placeholder}/>
+    setInput(placeholder: string, onChange: (event: React.ChangeEvent<HTMLInputElement>) => void) {
+        const newInput = <Input placeholder={placeholder} change={onChange}/>
         this.elements.push(newInput)
         return this
     }
