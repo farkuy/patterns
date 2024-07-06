@@ -3,6 +3,7 @@ import './App.css';
 import {FormBuilder} from "./patterns/builder/FormBuilder";
 import {userInfo} from "./patterns/singleTon/singleTon.store";
 import {observer} from "mobx-react";
+import {UserList} from "./patterns/adapter/UserList";
 
 interface INewUserInfo{
     firstName: string,
@@ -43,6 +44,7 @@ export const App = observer(() => {
             <div>{ userInfo.firstName }</div>
             <div>{ userInfo.middleName }</div>
             <div>{ userInfo.lastName }</div>
+            <UserList/>
         </div>
     );
 });
