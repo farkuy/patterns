@@ -11,19 +11,19 @@ export const UserList = () => {
     const { usersJsonPlaceholder } = useGetUsersJsonPlaceholder();
 
     useEffect(() => {
+        if (usersDummyJson && usersJsonPlaceholder) {
+            setAllUsers([...usersDummyJson, ...usersJsonPlaceholder])
+            return
+        }
         if (usersDummyJson) {
-            if (allUsers.length > 0)
-                setAllUsers([...allUsers, ...usersDummyJson])
-            else
-                setAllUsers(usersDummyJson)
+            setAllUsers(usersDummyJson);
+            return;
         }
         if (usersJsonPlaceholder) {
-            if (allUsers.length > 0)
-                setAllUsers([...allUsers, ...usersJsonPlaceholder])
-            else
-                setAllUsers(usersJsonPlaceholder)
+            setAllUsers(usersJsonPlaceholder);
+            return;
         }
-    }, [usersDummyJson])
+    }, [usersDummyJson, usersJsonPlaceholder])
 
     return (
         <div>
